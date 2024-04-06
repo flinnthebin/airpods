@@ -1,0 +1,2 @@
+# airpods
+!bluetoothctl -pods
