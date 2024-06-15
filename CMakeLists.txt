@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS NO)
 
 # Find Boost
-find_package(Boost 1.65 REQUIRED COMPONENTS system filesystem unit_test_framework process iostreams)
+find_package(Boost 1.83 REQUIRED COMPONENTS system filesystem unit_test_framework process iostreams)
 
 # this is helpful for editors like VS Code
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

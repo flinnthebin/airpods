@@ -8,10 +8,10 @@
 
 namespace ble {
 
-// utilising boost::iostreams to synchronise commands to system prompt returns
-auto prompt(int pipe_fd) -> void;
+	// utilising boost::iostreams to synchronise commands to system prompt returns
+	auto prompt(int pipe_fd) -> void;
 
-// Opens a pipe to bluetoothctl to automate the device connection process
-auto connect_BLE(const std::string& dev_MAC);
+	// Opens a pipe to bluetoothctl to automate the device connection process
+	auto connect_BLE(const std::string& dev_MAC);
 
-} //namespace ble
+} // namespace ble
