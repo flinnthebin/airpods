@@ -1,30 +1,18 @@
 # ble
 
-An extensible command-line tool written in Go for managing known bluetooth devices
+An extensible command-line tool written in C++ for managing known bluetooth devices
 
-## Adding Devices
+## Usage
 
-Add the device & MAC address variables to the var list,
-Implement the flag in func init().
-Make a switch statement in main if you're feeling fancy.
+Change the MAC address
 
-```go
-var (
-    airpodsMAC string = "B0:3F:64:21:7E:D7"
-    airpods    bool
-)
+```cpp
+constexpr auto airpodsMAC = "D0:4F:65:A1:6E:D6";
+auto airpods = false;
+```
 
-func init() {
-    flag.BoolVar(&airpods, "airpods", false, "Connect to AirPods")
-}
-
-func main() {
-    flag.Parse()
-
-    if airpods {
-        connectToBluetoothDevice(airpodsMAC)
-    } else {
-        fmt.Println("No device specified. Use -airpods to connect to AirPods.")
-    }
-}
+```sh
+g++ ble.cpp -o ble -lboost_iostreams
+chmod +x ble
+./ble -airpods
 ```
