@@ -63,7 +63,7 @@ add_library(ble src/ble.cpp)
 link_libraries(ble)
 
 # adding main file
-add_executable(src/ble.cpp)
+add_executable(ble.cpp)
 
 # adding test file
 add_executable(ble_test test/ble.test.cpp)
