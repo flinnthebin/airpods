@@ -10,6 +10,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS NO)
 
+# Find Boost
+find_package(Boost 1.65 REQUIRED COMPONENTS system filesystem unit_test_framework process iostreams)
+
 # this is helpful for editors like VS Code
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -58,13 +61,23 @@ link_libraries(catch2_main)
 # make sure english.txt is with the build files
 # configure_file(src/english.txt english.txt COPYONLY)
 
-# adding passman library
-add_library(ble src/ble.cpp)
-link_libraries(ble)
+# adding ble library
+add_library(blelib src/ble.cpp)
+link_libraries(blelib)
 
 # adding main file
-add_executable(ble.cpp)
+add_executable(ble src/ble.cpp)
+target_include_directories(ble PUBLIC ${Boost_INCLUDE_DIRS})
+target_link_libraries(bletest
+       Boost::iostreams
+   )
 
 # adding test file
 add_executable(ble_test test/ble.test.cpp)
-add_test(ble_test)
+add_test(ble_test bletest)
+target_link_libraries(bletest
+       Boost::system
+       Boost::filesystem
+       Boost::unit_test_framework
+       Boost::process
+   )

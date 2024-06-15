@@ -5,7 +5,7 @@
 constexpr auto airpodsMAC = "B0:3F:64:21:7E:D7";
 auto airpods = false;
 
-auto waitForPrompt(int pipe_fd) -> void {
+auto prompt(int pipe_fd) -> void {
 	boost::iostreams::file_descriptor_source fd_source(pipe_fd, boost::iostreams::never_close_handle);
 	boost::iostreams::stream<boost::iostreams::file_descriptor_source> pipe_stream(fd_source);
 
@@ -18,7 +18,7 @@ auto waitForPrompt(int pipe_fd) -> void {
 	}
 }
 
-void connectToBluetoothDevice(const std::string& deviceMAC) {
+void connectBLE(const std::string& deviceMAC) {
 	FILE* pipe = popen("zsh -c 'bluetoothctl'", "r+");
 	if (!pipe) {
 		std::cerr << "Error starting bluetoothctl: " << strerror(errno) << std::endl;
@@ -38,7 +38,7 @@ void connectToBluetoothDevice(const std::string& deviceMAC) {
 		return;
 	}
 
-	std::thread outputThread(waitForPrompt, pipe_fd);
+	std::thread outputThread(prompt, pipe_fd);
 
 	if (fprintf(pipe, "scan on\n") < 0 || fflush(pipe) == EOF) {
 		std::cerr << "Error sending scan on command: " << strerror(errno) << std::endl;
@@ -76,7 +76,7 @@ auto main(int argc, char* argv[]) -> int {
 	}
 
 	if (airpods) {
-		connectToBluetoothDevice(airpodsMAC);
+		connectBLE(airpodsMAC);
 	}
 	else {
 		std::cout << "No device specified. Use -airpods to connect to AirPods." << std::endl;
