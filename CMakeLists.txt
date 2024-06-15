@@ -58,26 +58,18 @@ link_libraries(catch2_main)
 # -------------- DO NOT MODIFY ABOVE THIS LINE --------------- #
 # ------------------------------------------------------------ #
 
-# make sure english.txt is with the build files
-# configure_file(src/english.txt english.txt COPYONLY)
-
-# adding ble library
+# Add the BLE library
 add_library(blelib src/ble.cpp)
-link_libraries(blelib)
+target_include_directories(blelib PUBLIC ${Boost_INCLUDE_DIRS})
+target_link_libraries(blelib Boost::iostreams)
 
-# adding main file
+# Add the main executable
 add_executable(ble src/ble.cpp)
 target_include_directories(ble PUBLIC ${Boost_INCLUDE_DIRS})
-target_link_libraries(bletest
-       Boost::iostreams
-   )
+target_link_libraries(ble Boost::system Boost::filesystem Boost::process Boost::iostreams)
 
-# adding test file
+# Add the test executable
 add_executable(ble_test test/ble.test.cpp)
-add_test(ble_test bletest)
-target_link_libraries(bletest
-       Boost::system
-       Boost::filesystem
-       Boost::unit_test_framework
-       Boost::process
-   )
+target_include_directories(ble_test PUBLIC ${Boost_INCLUDE_DIRS})
+target_link_libraries(ble_test blelib Boost::system Boost::filesystem Boost::unit_test_framework Boost::process Boost::iostreams)
+add_test(NAME ble_test COMMAND ble_test)
