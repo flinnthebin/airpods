@@ -86,3 +86,20 @@ namespace ble {
 		return 0;
 	}
 } // namespace ble
+	
+	auto main(int argc, char* argv[]) -> int {
+		for (int i = 1; i < argc; ++i) {
+			if (std::string(argv[i]) == "-airpods") {
+				airpods = true;
+			}
+		}
+
+		if (airpods) {
+			ble::connectBLE(airpodsMAC);
+		}
+		else {
+			std::cout << "No device specified. Use -airpods to connect to AirPods." << std::endl;
+		}
+		return 0;
+	}
+

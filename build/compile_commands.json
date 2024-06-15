@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/archer/git/ble/build",
+  "command": "/usr/bin/c++  -I/home/archer/git/ble/lib -std=c++20 -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wzero-as-null-pointer-constant -Wsuggest-override -fstack-protector-strong -o CMakeFiles/catch2_main.dir/lib/catch2_main.cpp.o -c /home/archer/git/ble/lib/catch2_main.cpp",
+  "file": "/home/archer/git/ble/lib/catch2_main.cpp",
+  "output": "CMakeFiles/catch2_main.dir/lib/catch2_main.cpp.o"
+},
+{
+  "directory": "/home/archer/git/ble/build",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_IOSTREAMS_NO_LIB -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_NO_LIB -I/home/archer/git/ble/lib -std=c++20 -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wzero-as-null-pointer-constant -Wsuggest-override -fstack-protector-strong -o CMakeFiles/ble.dir/src/ble.cpp.o -c /home/archer/git/ble/src/ble.cpp",
+  "file": "/home/archer/git/ble/src/ble.cpp",
+  "output": "CMakeFiles/ble.dir/src/ble.cpp.o"
+},
+{
+  "directory": "/home/archer/git/ble/build",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_IOSTREAMS_NO_LIB -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_NO_LIB -I/home/archer/git/ble/lib -std=c++20 -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wzero-as-null-pointer-constant -Wsuggest-override -fstack-protector-strong -o CMakeFiles/ble_test.dir/test/ble.test.cpp.o -c /home/archer/git/ble/test/ble.test.cpp",
+  "file": "/home/archer/git/ble/test/ble.test.cpp",
+  "output": "CMakeFiles/ble_test.dir/test/ble.test.cpp.o"
+}
+]

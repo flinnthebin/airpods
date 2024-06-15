@@ -1,0 +1,6 @@
+/home/archer/git/ble/build/CMakeFiles/catch2_main.dir
+/home/archer/git/ble/build/CMakeFiles/ble.dir
+/home/archer/git/ble/build/CMakeFiles/ble_test.dir
+/home/archer/git/ble/build/CMakeFiles/test.dir
+/home/archer/git/ble/build/CMakeFiles/edit_cache.dir
+/home/archer/git/ble/build/CMakeFiles/rebuild_cache.dir

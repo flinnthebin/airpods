@@ -10,8 +10,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS NO)
 
-# Find Boost
-find_package(Boost 1.83 REQUIRED COMPONENTS system filesystem unit_test_framework process iostreams)
+# Boost
+find_package(Boost 1.83.0 REQUIRED COMPONENTS filesystem iostreams unit_test_framework)
+include_directories(${Boost_INCLUDE_DIRS})
 
 # this is helpful for editors like VS Code
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -58,18 +59,11 @@ link_libraries(catch2_main)
 # -------------- DO NOT MODIFY ABOVE THIS LINE --------------- #
 # ------------------------------------------------------------ #
 
-# Add the BLE library
-add_library(blelib src/ble.cpp)
-target_include_directories(blelib PUBLIC ${Boost_INCLUDE_DIRS})
-target_link_libraries(blelib Boost::iostreams)
-
 # Add the main executable
 add_executable(ble src/ble.cpp)
-target_include_directories(ble PUBLIC ${Boost_INCLUDE_DIRS})
-target_link_libraries(ble Boost::system Boost::filesystem Boost::process Boost::iostreams)
+target_link_libraries(ble ${Boost_LIBRARIES})
 
 # Add the test executable
 add_executable(ble_test test/ble.test.cpp)
-target_include_directories(ble_test PUBLIC ${Boost_INCLUDE_DIRS})
-target_link_libraries(ble_test blelib Boost::system Boost::filesystem Boost::unit_test_framework Boost::process Boost::iostreams)
+target_link_libraries(ble_test ${Boost_LIBRARIES})
 add_test(NAME ble_test COMMAND ble_test)
