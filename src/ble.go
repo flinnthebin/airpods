@@ -1,3 +1,18 @@
+package main
+
+import (
+    "flag"
+    "fmt"
+    "io"
+    "os"
+    "os/exec"
+    "strings"
+)
+
+var (
+    airpodsMAC string = "B0:3F:64:21:7E:D7"
+    airpods    bool
+)
 
 func init() {
     flag.BoolVar(&airpods, "airpods", false, "Connect to AirPods")
